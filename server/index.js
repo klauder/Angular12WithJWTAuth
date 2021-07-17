@@ -22,7 +22,6 @@ const db = require("./models");
 const Role = db.role;
 const User = db.user;
 const UserRoles = db.user_roles;
-
 /*
 db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync Db with { force: true }');
@@ -31,7 +30,7 @@ db.sequelize.sync({force: true}).then(() => {
 */
 
 db.sequelize.sync().then(() => {
-  console.log('Drop and Resync Db with { force: true }');
+  console.log('Resync');
 });
 
 // simple route
