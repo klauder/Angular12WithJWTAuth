@@ -27,6 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.form);
+
     const { username, password } = this.form;
 
     this.authService.login(username, password).subscribe(
@@ -37,7 +39,8 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        //this.reloadPage();
+        this.goHome();
       },
       err => {
         this.errorMessage = err.error.message;
@@ -48,5 +51,9 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  goHome(): void {
+    window.location.href = '/profile';
   }
 }

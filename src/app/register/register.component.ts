@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        this.goHome();
       },
       err => {
         this.errorMessage = err.error.message;
@@ -36,4 +37,9 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  goHome(): void {
+    window.location.href = '/home';
+  }
+
 }

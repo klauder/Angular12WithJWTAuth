@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:4200"
 };
 
 app.use(cors(corsOptions));
@@ -23,9 +23,15 @@ const Role = db.role;
 const User = db.user;
 const UserRoles = db.user_roles;
 
+/*
 db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync Db with { force: true }');
   initial();
+});
+*/
+
+db.sequelize.sync().then(() => {
+  console.log('Drop and Resync Db with { force: true }');
 });
 
 // simple route
